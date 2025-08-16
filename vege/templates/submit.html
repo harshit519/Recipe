@@ -1,0 +1,56 @@
+{%extends "index2.html" %}
+{% block start %}
+
+
+
+
+
+
+
+
+<form class="col-4 mx-auto card p-2">
+  <div class="mt-">
+  <label  class='form-label ' for="search">Search</label>
+  <input name="search" type="text">
+  <button class="btn btn-primary" class="mr-4" type="submit">Search</button></div>
+</form><hr><br>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">receipe name</th>
+        <th scope="col">receipe description</th>
+        <th scope="col">image</th>
+        
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for receipe in rcp %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{receipe.rcp_name}}</td>
+        <td>{{receipe.rcp_description}}</td>
+        <td>
+          
+          <img src="{{ receipe.rcp_image.url }}" height="120" width="120" alt="{{ receipe.rcp_name }}">
+          
+        </td>
+       <td>
+         <a href="{% url 'delete' receipe.id %}" class="btn btn-danger mt-4">Delete</a><br>
+       <div class='mt-1'>
+         <a href="{% url 'update' receipe.id %}" class="btn btn-success">Update</a>
+        </div>
+       </td>
+      </tr>
+      {% endfor%}
+    </tbody>
+  </table>
+   
+
+
+  <button type="submit" class="btn btn-success" ><a href="/receipes/" target="_blank"  style="color: black;">Enter Details</a></button>
+
+      
+    
+{% endblock %}

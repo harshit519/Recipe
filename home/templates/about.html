@@ -1,0 +1,52 @@
+{%extends "a.html" %}
+{% block start %}
+<h1>this is about page</h1>
+    <a href="/contact/">contact us</a>
+    |
+    <a href="/home/">index page</a>
+    |
+    <a href="/login/">rcp project</a>
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">name</th>
+            <th scope="col">ID</th>
+            <th scope="col">Department</th>
+            <th scope="col">Email</th>
+            <th scope="col">Age</th>
+            <th scope="col">Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in student %}
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td><b>{{i.student_name}}</b></td>
+            <td>{{i.student_id}}</td>
+            <td>{{i.department}}</td>
+            <td>{{i.student_email}}</td>
+            <td>{{i.student_age}}</td>
+            <td>{{i.student_address}}</td>
+        </tr>
+    </tbody>
+    {%endfor%}
+</table>
+
+    
+{% endblock %}
